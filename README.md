@@ -1,3 +1,3 @@
-# nut-base
+# nut-finance
 
-generic pure java 8 library with 3rd party libraries
+generic pure java 8 library for finances
