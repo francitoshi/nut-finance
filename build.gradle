@@ -15,8 +15,8 @@ repositories
 
 dependencies
 {
-    implementation 'com.github.francitoshi:nut-base:v0.0.12'
-//    implementation 'com.github.francitoshi:nut-core:v0.0.12'
+    implementation 'com.github.francitoshi:nut-base:v0.0.14'
+//    implementation 'com.github.francitoshi:nut-core:v0.0.14'
 	
     implementation "com.squareup.okhttp3:okhttp:4.12.0"
 
