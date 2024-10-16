@@ -153,7 +153,6 @@ public class CsvQuotes
             {
                 case Date:
                     time = JavaTime.epochSecond(JavaTime.parseLocalDate(rawdate, JavaTime.UTC));
-                    System.out.printf("%s=%d\n",rawdate, time);
                     break;
                 case DateTime:
                     time = JavaTime.epochSecond(JavaTime.parseLocalDateTime(rawdate, JavaTime.UTC));

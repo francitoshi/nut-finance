@@ -26,6 +26,9 @@ import io.nut.base.util.Utils;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.security.InvalidParameterException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -47,6 +50,16 @@ public class Quote
         this.high = high;
         this.low = low;
         this.close = close;
+    }
+
+    public LocalDate getLocalDate()
+    {
+        return LocalDate.from(Instant.ofEpochSecond(time));
+    }
+
+    public LocalDateTime getLocalDateTime()
+    {
+        return LocalDateTime.from(Instant.ofEpochSecond(time));
     }
 
     @Override

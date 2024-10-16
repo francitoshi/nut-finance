@@ -1,5 +1,5 @@
 /*
- * WeightedMovingAverageTest.java
+ *  HullMovingAverageTest.java
  *
  *  Copyright (C) 2018-2024 francitoshi@gmail.com
  *
@@ -45,8 +45,6 @@ public class HullMovingAverageTest
             double[] result = instance.get1st(value);
             assertArrayEquals(expect, result, 0.005);
         }
-       
-       
     }
     
 }

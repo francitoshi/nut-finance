@@ -38,6 +38,6 @@ public class DateQuoteTest
     {
         Quote instance = new DateQuote(0, BigDecimal.valueOf(2), BigDecimal.valueOf(4), BigDecimal.valueOf(1), BigDecimal.valueOf(3));
         String result = instance.toString();
-        assertEquals("T=1970-01-01 O=2 H=4 L=1 C=3", instance.toString());
+        assertEquals("1970-01-01 O=2 H=4 L=1 C=3", instance.toString());
     }
 }
