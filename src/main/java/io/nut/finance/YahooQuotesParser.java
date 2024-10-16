@@ -20,7 +20,7 @@
  */
 package io.nut.finance;
 
-import io.nut.base.os.Debug;
+import io.nut.base.debug.Debug;
 import io.nut.base.util.CharSets;
 import io.nut.base.util.Parsers;
 
