@@ -22,6 +22,7 @@ package io.nut.finance.quotes;
 
 import io.nut.base.math.Nums;
 import static io.nut.base.math.Nums.MC16HU;
+import io.nut.base.time.JavaTime;
 import io.nut.base.util.Utils;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -54,12 +55,12 @@ public class Quote
 
     public LocalDate getLocalDate()
     {
-        return LocalDate.from(Instant.ofEpochSecond(time));
+        return JavaTime.asLocalDate(time);
     }
 
     public LocalDateTime getLocalDateTime()
     {
-        return LocalDateTime.from(Instant.ofEpochSecond(time));
+        return JavaTime.asLocalDateTime(time);
     }
 
     @Override
