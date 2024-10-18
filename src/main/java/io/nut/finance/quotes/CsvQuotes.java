@@ -170,7 +170,7 @@ public class CsvQuotes
                 continue;
             }
             //update values converting prices from counterCoin to the fiat currency 			        
-            if(counterCoin!=null)
+            if(counterCoin!=null && !counterCoin.equals(this.fiatCoin))
             {
                 Quote quote2 = getQuote(counterCoin, time);
                 if(quote2==null)
