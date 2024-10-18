@@ -32,7 +32,6 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.security.InvalidParameterException;
 import java.text.ParseException;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -176,7 +175,7 @@ public class CsvQuotes
                 Quote quote2 = getQuote(counterCoin, time);
                 if(quote2==null)
                 {
-                    LocalDateTime date = LocalDateTime.from(Instant.ofEpochSecond(time));
+                    LocalDateTime date = JavaTime.asLocalDateTime(time);
                     throw new InvalidParameterException("no data for "+counterCoin+" at "+date);
                 }
                 open = open.multiply(quote2.open);
