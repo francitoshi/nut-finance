@@ -1,28 +1,28 @@
-apply plugin: 'java'
-apply plugin: 'maven-publish'
+plugins 
+{
+    id 'java'
+}
 
 group = 'com.github.francitoshi'
-version = '0.0.36'
+version = '0.1.13'
+//remember to execute 'git tag -a x.x.x -m "Version x.x.x"'
 
 repositories 
 {
     mavenCentral()
     maven { url 'https://jitpack.io' }
 }
-
+//run "./gradlew dependencies --configuration runtimeClasspath" to verify version problems
 dependencies
 {
-    implementation 'com.github.francitoshi:nut-base:v0.0.34'
-//    implementation 'com.github.francitoshi:nut-core:v0.0.33'
+    implementation 'com.github.francitoshi:nut-base:0.1.13'
+    implementation 'com.github.francitoshi:nut-core:0.1.13'
 	
     implementation "com.squareup.okhttp3:okhttp:4.12.0"
-    implementation 'org.apache.commons:commons-csv:1.9.0'
 
+    implementation 'org.apache.commons:commons-csv:1.14.0'
 
-    // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3'
-    testImplementation 'org.bouncycastle:bcprov-jdk15on:1.62'
-    testImplementation 'org.apache.commons:commons-csv:1.9.0'
 }
 
 java 
@@ -33,25 +33,13 @@ java
     withJavadocJar()
 }
 
-test 
-{
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-}
-
-publishing 
-{
-    publications 
-    {
-        maven(MavenPublication) 
-	{
-            from components.java
-        }
-    }
-}
-
 wrapper 
 {
     gradleVersion = "8.2"
     distributionType = Wrapper.DistributionType.ALL
+}
+
+test 
+{
+    useJUnitPlatform()
 }
