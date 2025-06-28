@@ -35,6 +35,9 @@ public class MakerPrice
     private final long takerNanoTime; 
     private final int takerCount; 
     private volatile int count;
+    private volatile BigDecimal lastBid = BigDecimal.ZERO;
+    private volatile BigDecimal lastAsk = BigDecimal.valueOf(Integer.MAX_VALUE);
+    
    
     public MakerPrice(BigDecimal tick, int scale)
     {
@@ -53,11 +56,19 @@ public class MakerPrice
 
     public BigDecimal getBid(BigDecimal bid, BigDecimal ask)
     {
-        BigDecimal offset = tick.multiply(BigDecimal.valueOf(++count));
-        bid = bid.add(offset);
+        BigDecimal bidCount = BigDecimal.valueOf(++count);
+        BigDecimal tickOffset = tick.multiply(bidCount);
+        
+        BigDecimal spread = bid.subtract(ask);
+        BigDecimal spreadOffset = spread.divide(BigDecimal.valueOf(this.takerCount), scale+1, RoundingMode.HALF_UP).multiply(bidCount);
+        BigDecimal offset = tickOffset.max(spreadOffset); 
+        bid = bid.add(offset).max(lastBid.add(tick));
+
         ask = allowTaker() ? ask : ask.subtract(tick);
-        boolean jump = ask.subtract(bid).compareTo(offset)<0;
-        return roundBid( jump ? ask : bid.min(ask) );
+
+        boolean jump = ask.subtract(bid).compareTo(tickOffset)<0;
+
+        return lastBid = roundBid( jump ? ask : bid.min(ask) );
     }
     public BigDecimal getAsk(BigDecimal bid, BigDecimal ask)
     {
@@ -65,7 +76,7 @@ public class MakerPrice
         bid = bid.add(tick);
         ask = ask.subtract(offset);
         boolean jump = ask.subtract(bid).compareTo(offset)<0;
-        return roundBid( jump ? bid : bid.max(ask) );
+        return lastAsk = roundAsk( jump ? bid : bid.max(ask) );
     }
             
     public BigDecimal roundBid(BigDecimal value)
