@@ -63,7 +63,7 @@ public class MakerPrice
         BigDecimal spreadOffset = spread.divide(BigDecimal.valueOf(this.takerCount), scale+1, RoundingMode.HALF_UP).multiply(bidCount);
         BigDecimal offset = tickOffset.max(spreadOffset); 
         bid = bid.add(offset).max(lastBid.add(tick));
-
+        System.err.printf("%d %s %s %s %s\n", count, tickOffset, spreadOffset, offset, bid);
         ask = allowTaker() ? ask : ask.subtract(tick);
 
         boolean jump = ask.subtract(bid).compareTo(tickOffset)<0;
