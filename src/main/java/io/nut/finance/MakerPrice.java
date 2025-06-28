@@ -59,7 +59,7 @@ public class MakerPrice
         BigDecimal bidCount = BigDecimal.valueOf(++count);
         BigDecimal tickOffset = tick.multiply(bidCount);
         
-        BigDecimal spread = bid.subtract(ask);
+        BigDecimal spread = ask.subtract(bid);
         BigDecimal spreadOffset = spread.divide(BigDecimal.valueOf(this.takerCount), scale+1, RoundingMode.HALF_UP).multiply(bidCount);
         BigDecimal offset = tickOffset.max(spreadOffset); 
         bid = bid.add(offset).max(lastBid.add(tick));
