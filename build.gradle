@@ -4,7 +4,7 @@ plugins
 }
 
 group = 'com.github.francitoshi'
-version = '0.1.32'
+version = '0.1.33'
 //remember to execute 'git tag -a x.x.x -m "Version x.x.x"'
 
 repositories 
@@ -15,8 +15,8 @@ repositories
 //run "./gradlew dependencies --configuration runtimeClasspath" to verify version problems
 dependencies
 {
-    implementation 'com.github.francitoshi:nut-base:0.1.32'
-    implementation 'com.github.francitoshi:nut-core:0.1.32'
+    implementation 'com.github.francitoshi:nut-base:0.1.33'
+    implementation 'com.github.francitoshi:nut-core:0.1.33'
 	
     implementation "com.squareup.okhttp3:okhttp:4.12.0"
 
