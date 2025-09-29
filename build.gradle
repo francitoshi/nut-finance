@@ -4,7 +4,7 @@ plugins
 }
 
 group = 'com.github.francitoshi'
-version = '0.1.36'
+version = '0.1.38'
 //remember to execute 'git tag -a x.x.x -m "Version x.x.x"'
 
 repositories 
@@ -13,11 +13,15 @@ repositories
     maven { url 'https://jitpack.io' }
 }
 //run "./gradlew dependencies --configuration runtimeClasspath" to verify version problems
+
+def bouncycastleVersion = '1.81'
+def nutVersion = version
+
 dependencies
 {
-    implementation 'com.github.francitoshi:nut-base:0.1.36'
-    implementation 'com.github.francitoshi:nut-core:0.1.36'
-	
+    implementation "com.github.francitoshi:nut-base:${nutVersion}"
+    implementation "com.github.francitoshi:nut-core:${nutVersion}"
+
     implementation "com.squareup.okhttp3:okhttp:4.12.0"
 
     implementation 'org.apache.commons:commons-csv:1.14.0'
