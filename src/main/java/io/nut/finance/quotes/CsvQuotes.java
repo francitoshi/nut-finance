@@ -1,7 +1,7 @@
 /*
  *  CsvQuotes.java
  *
- *  Copyright (c) 2023-2024 francitoshi@gmail.com
+ *  Copyright (c) 2023-2026 francitoshi@gmail.com
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -59,7 +59,7 @@ public class CsvQuotes
     private final HashMap<String,Quote> fixed = new HashMap<>();
     private final HashMap<String,HashMap<Long,Quote>> quotes = new HashMap<>();
 
-    private final String fiatCoin;
+    public final String fiatCoin;
     private final TimeType timeType;
     private final String time_name;
     private final String open_name;
