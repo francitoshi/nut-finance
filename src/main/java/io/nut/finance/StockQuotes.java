@@ -107,8 +107,8 @@ public class StockQuotes
             boolean lteq = this.date.compareTo(item.date)<=0;
             LocalDate dt = lteq ? this.date : item.date;
             double op = lteq ? this.open : item.open;
-            double hi = Utils.maxOf(this.high, item.high);
-            double lo = Utils.minOf(this.low, item.low);
+            double hi = Nums.maxOf(this.high, item.high);
+            double lo = Nums.minOf(this.low, item.low);
             double cl = lteq ? item.close : this.close;
             double vol = this.volume + item.volume;
             double div = this.dividend + item.dividend;
@@ -246,11 +246,11 @@ public class StockQuotes
                 }
                 else if(getDouble==getHigh)
                 {
-                    data[i] = Utils.max(item.open,item.low,item.close);
+                    data[i] = Nums.maxOf(item.open,item.low,item.close);
                 }
                 else if(getDouble==getLow)
                 {
-                    data[i] = Utils.min(Utils.exclude(0.0, item.open,item.low,item.close));
+                    data[i] = Nums.min(Utils.exclude(0.0, item.open,item.low,item.close));
                 }
                 else if(getDouble==getOpen)
                 {
@@ -318,11 +318,11 @@ public class StockQuotes
                 }
                 else if(getDouble==getHigh)
                 {
-                    data[i] = Utils.max(item.open,item.low,item.close);
+                    data[i] = Nums.maxOf(item.open,item.low,item.close);
                 }
                 else if(getDouble==getLow)
                 {
-                    data[i] = Utils.min(Utils.exclude(0.0, item.open,item.low,item.close));
+                    data[i] = Nums.min(Utils.exclude(0.0, item.open,item.low,item.close));
                 }
                 else if(getDouble==getOpen)
                 {
@@ -1129,7 +1129,7 @@ public class StockQuotes
         {
             assert (high[i]>=low[i]) :(high[i]+"<"+low[i]);
             
-            atr[i] = Utils.maxOf(high[i]-low[i], Math.abs(high[i]-close[i-1]), Math.abs(low[i]-close[i-1]));
+            atr[i] = Nums.maxOf(high[i]-low[i], Math.abs(high[i]-close[i-1]), Math.abs(low[i]-close[i-1]));
             if(atr[i]!=0)
             {
                 atrTotal += atr[i];
