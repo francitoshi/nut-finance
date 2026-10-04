@@ -5,7 +5,7 @@
  */
 package io.nut.finance;
 
-import io.nut.base.math.Stats;
+import io.nut.base.lang.Maths;
 import io.nut.finance.indicator.ExponentialMovingAverage;
 import io.nut.finance.indicator.HullMovingAverage;
 import io.nut.finance.indicator.Indicator;
@@ -13,6 +13,7 @@ import io.nut.finance.indicator.MovingAverageConvergenceDivergence;
 import io.nut.finance.indicator.SimpleMovingAverage;
 import io.nut.base.math.Nums;
 import io.nut.base.math.Round;
+import io.nut.base.stats.Stats;
 import io.nut.base.time.JavaTime;
 import io.nut.base.util.Sorts;
 import io.nut.base.util.Utils;
@@ -239,11 +240,11 @@ public class StockQuotes
                 }
                 else if(getDouble==getOpen)
                 {
-                    data[i] = Nums.avg(Utils.exclude(0.0, item.high,item.low,item.close));
+                    data[i] = Maths.avg(Utils.exclude(0.0, item.high,item.low,item.close));
                 }
                 else if(getDouble==getClose)
                 {
-                    data[i] = Nums.avg(Utils.exclude(0.0, item.open,item.high,item.low));
+                    data[i] = Maths.avg(Utils.exclude(0.0, item.open,item.high,item.low));
                 }
             }
             if(div!=null)
@@ -311,11 +312,11 @@ public class StockQuotes
                 }
                 else if(getDouble==getOpen)
                 {
-                    data[i] = Nums.avg(Utils.exclude(0.0, item.high,item.low,item.close));
+                    data[i] = Maths.avg(Utils.exclude(0.0, item.high,item.low,item.close));
                 }
                 else if(getDouble==getClose)
                 {
-                    data[i] = Nums.avg(Utils.exclude(0.0, item.open,item.high,item.low));
+                    data[i] = Maths.avg(Utils.exclude(0.0, item.open,item.high,item.low));
                 }
             }
             if(div!=null)
