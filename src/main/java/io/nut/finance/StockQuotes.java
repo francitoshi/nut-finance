@@ -9,7 +9,6 @@ import io.nut.base.commons.lang.Maths;
 import io.nut.base.commons.lang.Round;
 import io.nut.base.commons.lang.Sorts;
 import io.nut.base.commons.time.JavaTime;
-import io.nut.base.math.Nums;
 import io.nut.base.stats.Stats;
 import io.nut.base.util.Utils;
 import io.nut.finance.indicator.ExponentialMovingAverage;
