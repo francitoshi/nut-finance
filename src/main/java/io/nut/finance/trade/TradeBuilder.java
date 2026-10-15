@@ -1,27 +1,12 @@
 /*
- *  TradeBuilder.java
- *
- *  Copyright (C) 2017-2024 francitoshi@gmail.com
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- *  Report bugs or new features to: francitoshi@gmail.com
+ * Copyright (C) 2017-2026 francitoshi@gmail.com
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * See LICENSE file in the project root for full license text.
  */
 package io.nut.finance.trade;
 
-import io.nut.base.math.Nums;
-import io.nut.base.math.Round;
+import io.nut.base.commons.lang.Maths;
+import io.nut.base.commons.lang.Round;
 import io.nut.base.util.Utils;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -111,7 +96,7 @@ public class TradeBuilder
 
         public Trade(double entryLimit, double stopLoss, double shareSlippage, double availableEquity, double availableRisk, int sharesLimit, double tickSize, TradeType tradeType, int shares, double worstEntry, double worstExit, double feeEntry, double feeExit, double amountEntry, double amountExit, double amountRisk)
         {
-            assert Nums.equalsEnough(Math.abs(amountEntry-amountExit),amountRisk, 0.0001) : String.format(Locale.ROOT,"%.2f != %.2f", Math.abs(amountEntry-amountExit), amountRisk);
+            assert Maths.equalsEnough(Math.abs(amountEntry-amountExit),amountRisk, 0.0001) : String.format(Locale.ROOT,"%.2f != %.2f", Math.abs(amountEntry-amountExit), amountRisk);
             this.entryLimit = entryLimit;
             this.stopLoss = stopLoss;
             this.shareSlippage = shareSlippage;

@@ -20,7 +20,7 @@
  */
 package io.nut.finance.quotes;
 
-import io.nut.base.time.JavaTime;
+import io.nut.base.commons.time.JavaTime;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;

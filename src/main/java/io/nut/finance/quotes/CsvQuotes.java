@@ -6,8 +6,8 @@
 package io.nut.finance.quotes;
 
 import io.nut.base.math.Nums;
-import io.nut.base.time.JavaTime;
-import io.nut.base.util.Parsers;
+import io.nut.base.commons.time.JavaTime;
+import io.nut.base.commons.lang.Parsers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

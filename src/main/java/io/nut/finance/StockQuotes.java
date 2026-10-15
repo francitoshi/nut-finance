@@ -5,18 +5,18 @@
  */
 package io.nut.finance;
 
-import io.nut.base.lang.Maths;
+import io.nut.base.commons.lang.Maths;
+import io.nut.base.commons.lang.Round;
+import io.nut.base.commons.lang.Sorts;
+import io.nut.base.commons.time.JavaTime;
+import io.nut.base.math.Nums;
+import io.nut.base.stats.Stats;
+import io.nut.base.util.Utils;
 import io.nut.finance.indicator.ExponentialMovingAverage;
 import io.nut.finance.indicator.HullMovingAverage;
 import io.nut.finance.indicator.Indicator;
 import io.nut.finance.indicator.MovingAverageConvergenceDivergence;
 import io.nut.finance.indicator.SimpleMovingAverage;
-import io.nut.base.math.Nums;
-import io.nut.base.math.Round;
-import io.nut.base.stats.Stats;
-import io.nut.base.time.JavaTime;
-import io.nut.base.util.Sorts;
-import io.nut.base.util.Utils;
 import java.time.LocalDate;
 
 import java.util.ArrayList;
@@ -93,8 +93,8 @@ public class StockQuotes
             boolean lteq = this.date.compareTo(item.date)<=0;
             LocalDate dt = lteq ? this.date : item.date;
             double op = lteq ? this.open : item.open;
-            double hi = Nums.maxOf(this.high, item.high);
-            double lo = Nums.minOf(this.low, item.low);
+            double hi = Maths.maxOf(this.high, item.high);
+            double lo = Maths.minOf(this.low, item.low);
             double cl = lteq ? item.close : this.close;
             double vol = this.volume + item.volume;
             double div = this.dividend + item.dividend;
@@ -232,11 +232,11 @@ public class StockQuotes
                 }
                 else if(getDouble==getHigh)
                 {
-                    data[i] = Nums.maxOf(item.open,item.low,item.close);
+                    data[i] = Maths.maxOf(item.open,item.low,item.close);
                 }
                 else if(getDouble==getLow)
                 {
-                    data[i] = Nums.min(Utils.exclude(0.0, item.open,item.low,item.close));
+                    data[i] = Maths.min(Utils.exclude(0.0, item.open,item.low,item.close));
                 }
                 else if(getDouble==getOpen)
                 {
@@ -304,11 +304,11 @@ public class StockQuotes
                 }
                 else if(getDouble==getHigh)
                 {
-                    data[i] = Nums.maxOf(item.open,item.low,item.close);
+                    data[i] = Maths.maxOf(item.open,item.low,item.close);
                 }
                 else if(getDouble==getLow)
                 {
-                    data[i] = Nums.min(Utils.exclude(0.0, item.open,item.low,item.close));
+                    data[i] = Maths.min(Utils.exclude(0.0, item.open,item.low,item.close));
                 }
                 else if(getDouble==getOpen)
                 {
@@ -565,7 +565,7 @@ public class StockQuotes
             up*=2;
             cover = coverage(ma, high, low, period, up, by);
         }
-        for(dw=up/2,md=up;!Nums.equalsEnough(dw, up, delta);)
+        for(dw=up/2,md=up;!Maths.equalsEnough(dw, up, delta);)
         {
             md = (dw+up)/2;
             cover = coverage(ma, high, low, period, md, by);
@@ -750,7 +750,7 @@ public class StockQuotes
     private double coverGap(double[] gaps, double coverage)
     {
         Arrays.sort(gaps);
-        int i = (int) Nums.bound(0,gaps.length-1,(gaps.length*coverage)-Double.MIN_VALUE);
+        int i = (int) Maths.bound(0,gaps.length-1,(gaps.length*coverage)-Double.MIN_VALUE);
         return gaps[i];
     }
     
@@ -1115,7 +1115,7 @@ public class StockQuotes
         {
             assert (high[i]>=low[i]) :(high[i]+"<"+low[i]);
             
-            atr[i] = Nums.maxOf(high[i]-low[i], Math.abs(high[i]-close[i-1]), Math.abs(low[i]-close[i-1]));
+            atr[i] = Maths.maxOf(high[i]-low[i], Math.abs(high[i]-close[i-1]), Math.abs(low[i]-close[i-1]));
             if(atr[i]!=0)
             {
                 atrTotal += atr[i];

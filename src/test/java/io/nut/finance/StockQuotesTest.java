@@ -21,7 +21,7 @@
 package io.nut.finance;
 
 import io.nut.finance.StockQuotes.Quote;
-import io.nut.base.time.JavaTime;
+import io.nut.base.commons.time.JavaTime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;

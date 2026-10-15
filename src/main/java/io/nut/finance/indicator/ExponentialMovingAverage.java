@@ -20,7 +20,7 @@
  */
 package io.nut.finance.indicator;
 
-import io.nut.base.math.Round;
+import io.nut.base.commons.lang.Round;
 
 /**
  *
