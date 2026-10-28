@@ -19,8 +19,8 @@ def nutVersion = version
 
 dependencies
 {
-    implementation "com.github.francitoshi:nut-base:${nutVersion}"
-    implementation "com.github.francitoshi:nut-core:${nutVersion}"
+    implementation "io.github.francitoshi:nut-base:${nutVersion}"
+    implementation "io.github.francitoshi:nut-core:${nutVersion}"
 
     compileOnly "com.squareup.okhttp3:okhttp:4.12.0"
 
@@ -57,7 +57,7 @@ publishing
     {
         maven(MavenPublication) 
         {
-            groupId = 'com.github.francitoshi'
+            groupId = 'io.github.francitoshi'
             artifactId = 'nut-finance'
             version = project.version
             from components.java
