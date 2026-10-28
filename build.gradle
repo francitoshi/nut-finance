@@ -19,8 +19,8 @@ def nutVersion = version
 
 dependencies
 {
-    implementation "io.github.francitoshi:nut-base:${nutVersion}"
-    implementation "io.github.francitoshi:nut-core:${nutVersion}"
+    implementation "com.github.francitoshi:nut-base:${nutVersion}"
+    implementation "com.github.francitoshi:nut-core:${nutVersion}"
 
     compileOnly "com.squareup.okhttp3:okhttp:4.12.0"
 
